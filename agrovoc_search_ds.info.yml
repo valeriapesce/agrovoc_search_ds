@@ -26,4 +26,4 @@ dependencies:
   - token:token
   - taxonomy_term_depth:taxonomy_term_depth
   - config_rewrite:config_rewrite  
-  - agrovoc_search:agrovoc_search
+  - agrovoc_search:agrovoc_search_basic
