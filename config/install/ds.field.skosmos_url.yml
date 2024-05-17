@@ -1,0 +1,14 @@
+id: skosmos_url
+label: 'SKOSMOS URL'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  taxonomy_term: taxonomy_term
+properties:
+  content:
+    value: "<p><span id=\"[term:tid]-skosmos-link\"><a id=\"[term:tid]-skosmos-link-a\" href=\"https://agrovoc.fao.org/browse/agrovoc/en/page/[term:field_fao_agrovoc_code]?clang=en\" target=\"_blank\" class=\"skosmos-link\">In SKOSMOS &nearr;</a></span></p>\r\n<script>\r\nlang = \"[term:language:langcode]\";\r\nlangstr = lang.substr(0, 2);\r\nfaolangs = [\"en\", \"fr\", \"es\", \"ru\", \"ar\", \"zh\"];\r\nif (faolangs.includes(langstr)) {\r\n  intf_langstr = langstr;\r\n} else {\r\n  intf_langstr = \"en\";\r\n}\r\ndocument.getElementById(\"[term:tid]-skosmos-link-a\").href = \"https://agrovoc.fao.org/browse/agrovoc/\" + intf_langstr + \"/page/[term:field_fao_agrovoc_code]?clang=\" + langstr;\r\n</script>"
+    format: full_html_plaintext
+  force_global_entity: false
+  use_global_entity: false
+  use_global_view_token: false

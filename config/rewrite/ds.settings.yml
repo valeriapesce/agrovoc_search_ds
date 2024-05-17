@@ -1,0 +1,4 @@
+config_rewrite:
+  replace: ["disabled", "field_template"]
+disabled: false
+field_template: true

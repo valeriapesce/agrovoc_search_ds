@@ -1,0 +1,14 @@
+id: link_to_term_search
+label: 'Link to term search'
+ui_limit: ''
+type: token
+type_label: 'Token field'
+entities:
+  taxonomy_term: taxonomy_term
+properties:
+  content:
+    value: "<span id=\"[term:tid]-currentlang\"><a href=\"[site:base-url]/[language:prefix]/agrovoc-search?agrovoc-language=[term:language:langcode]&keywords=[term:name]\">[term:name]</a></span>\r\n<span id=\"[term:tid]-origlang\" style=\"display:none;\">[term:name] (<a href=\"[site:base-url]/[language:prefix]/agrovoc-search?agrovoc-language=[term:language:langcode]&keywords=[term:name]\"><font style=\"color:#C70039; text-transform: uppercase;\">[term:language:langcode]</font></a>)</span>\r\n\r\n<script>\r\nif (\"[term:language:langcode]\" != \"[current-page:content-language:langcode]\") {\r\n  document.getElementById(\"[term:tid]-currentlang\").style.display = \"none\";\r\n  document.getElementById(\"[term:tid]-origlang\").style.display = \"inline-block\";\r\n}\r\n</script>"
+    format: full_html_plaintext
+  force_global_entity: false
+  use_global_entity: false
+  use_global_view_token: false

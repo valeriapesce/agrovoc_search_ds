@@ -1,0 +1,8 @@
+uuid: 95d548aa-4336-4d54-a97c-ea0e4ee2f645
+langcode: en
+status: true
+dependencies: {  }
+name: 'Full HTML plaintext'
+format: full_html_plaintext
+weight: 0
+filters: {  }

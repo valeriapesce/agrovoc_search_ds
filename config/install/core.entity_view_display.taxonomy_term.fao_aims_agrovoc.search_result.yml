@@ -1,0 +1,390 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.search_result
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_alternative_labels
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_broader
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_definition
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_narrower
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_note
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_related
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_def
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_lab
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_tit
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_uri
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_uri_link
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_fao_agrovoc_code
+    - taxonomy.vocabulary.fao_aims_agrovoc
+  module:
+    - ds
+    - entityreference_extensions
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: false
+      entity_classes: no_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      left:
+        - taxonomy_term_title
+        - 'dynamic_token_field:taxonomy_term-definition_with_lang'
+        - 'dynamic_token_field:taxonomy_term-note_with_lang'
+      right:
+        - 'dynamic_token_field:taxonomy_term-skosmos_url'
+        - field_agrovoc_alternative_labels
+        - field_agrovoc_broader
+        - field_agrovoc_narrower
+        - field_agrovoc_related
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: above
+        formatter: default
+        settings:
+          link: true
+          'link class': no-underline
+          wrapper: ''
+          class: ''
+        ft:
+          id: expert
+          settings:
+            lb: 'Preferred label:'
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: span
+            fi-cl: preferred
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+      'dynamic_token_field:taxonomy_term-definition_with_lang':
+        plugin_id: 'dynamic_token_field:taxonomy_term-definition_with_lang'
+        weight: 1
+        label: above
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: Definition
+            lbw: true
+            lbw-el: b
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: div
+            ow-cl: 'padding-top small-text'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+      'dynamic_token_field:taxonomy_term-note_with_lang':
+        plugin_id: 'dynamic_token_field:taxonomy_term-note_with_lang'
+        weight: 2
+        label: above
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: Note
+            lbw: true
+            lbw-el: b
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: div
+            ow-cl: 'padding-top small-text'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+      'dynamic_token_field:taxonomy_term-skosmos_url':
+        plugin_id: 'dynamic_token_field:taxonomy_term-skosmos_url'
+        weight: 3
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: 'align-right clear-right float-none'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: span
+            fi-cl: 'bold small-text'
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+id: taxonomy_term.fao_aims_agrovoc.search_result
+targetEntityType: taxonomy_term
+bundle: fao_aims_agrovoc
+mode: search_result
+content:
+  field_agrovoc_alternative_labels:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: true
+            lbw-el: b
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: div
+            ow-cl: padding-bottom
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: span
+            fi-cl: 'label-multiple inline right-border padding-right'
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 4
+    region: right
+  field_agrovoc_broader:
+    type: entity_reference_entity_view_delta
+    label: inline
+    settings:
+      view_mode: term_search_link
+      link: false
+      limit:
+        number: ''
+        offset: null
+        reverse: false
+        limit_before_sort: false
+      sort:
+        asc: true
+        field: name
+      display:
+        enable: false
+        view_mode: default
+        number: 1
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: true
+            lbw-el: b
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: div
+            ow-cl: 'broader-group padding-bottom'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: span
+            fi-cl: 'term-link-multiple inline right-border padding-right'
+            fi-at: ''
+            fi-def-at: true
+            prefix: ''
+            suffix: ''
+    weight: 5
+    region: right
+  field_agrovoc_narrower:
+    type: entity_reference_entity_view_delta
+    label: inline
+    settings:
+      view_mode: term_search_link
+      link: false
+      limit:
+        number: ''
+        offset: null
+        reverse: false
+        limit_before_sort: false
+      sort:
+        asc: true
+        field: name
+      display:
+        enable: false
+        view_mode: default
+        number: 1
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: true
+            lbw-el: b
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: div
+            ow-cl: 'narrower-group padding-bottom'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: span
+            fi-cl: 'term-link-multiple inline right-border padding-right'
+            fi-at: ''
+            fi-def-at: true
+            prefix: ''
+            suffix: ''
+    weight: 6
+    region: right
+  field_agrovoc_related:
+    type: entity_reference_entity_view_delta
+    label: inline
+    settings:
+      view_mode: term_search_link
+      link: false
+      limit:
+        number: ''
+        offset: null
+        reverse: false
+        limit_before_sort: false
+      sort:
+        asc: true
+        field: name
+      display:
+        enable: false
+        view_mode: default
+        number: 1
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: true
+            lbw-el: b
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: true
+            ow: true
+            ow-el: div
+            ow-cl: 'related-group padding-bottom'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: span
+            fi-cl: 'term-link-multiple inline right-border padding-right'
+            fi-at: ''
+            fi-def-at: true
+            prefix: ''
+            suffix: ''
+    weight: 7
+    region: right
+hidden:
+  description: true
+  field_agrovoc_definition: true
+  field_agrovoc_note: true
+  field_agrovoc_transliterated_def: true
+  field_agrovoc_transliterated_lab: true
+  field_agrovoc_transliterated_tit: true
+  field_agrovoc_uri: true
+  field_agrovoc_uri_link: true
+  field_fao_agrovoc_code: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,15 @@
+<?php
+use Drupal\views\ViewExecutable;
+use \Drupal\search_api_autocomplete\Suggestion\SuggestionInterface;
+use \Drupal\search_api\Query\ConditionGroupInterface;
+
+/**
+* Implements hook_views_pre_render().
+*/
+function agrovoc_search_ds_views_pre_render(ViewExecutable $view) {
+
+  if (isset($view) && ($view->storage->id() == 'agrovoc_search_searchapi')) {
+    $view->element['#attached']['library'][] = 'agrovoc_search_ds/agrovoc-search-ds';
+  }
+}
+

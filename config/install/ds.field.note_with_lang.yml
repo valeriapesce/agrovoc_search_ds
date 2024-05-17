@@ -1,0 +1,11 @@
+id: note_with_lang
+label: 'Note with lang'
+ui_limit: 'fao_aims_agrovoc|*'
+type: token
+type_label: 'Token field'
+entities:
+  taxonomy_term: taxonomy_term
+properties:
+  content:
+    value: "<span id=\"[term:tid]-ag-note\" class=\"text-collapse\">[term:field_agrovoc_note:value]</span>\r\n<script>if (\"[term:field_agrovoc_note:value]\" == \"\" && \"[term:source:field_agrovoc_note:value]\" != \"\") {\r\n  document.getElementById(\"[term:tid]-ag-definition\").innerHTML = \"<i>(English) [term:source:field_agrovoc_note:value]</i>\";\r\n}\r\n</script>"
+    format: full_html_plaintext

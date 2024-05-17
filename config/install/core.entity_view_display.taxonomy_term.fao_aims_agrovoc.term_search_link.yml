@@ -1,0 +1,86 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.term_search_link
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_alternative_labels
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_broader
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_definition
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_narrower
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_note
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_related
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_def
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_lab
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_tit
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_uri
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_uri_link
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_fao_agrovoc_code
+    - taxonomy.vocabulary.fao_aims_agrovoc
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - 'dynamic_token_field:taxonomy_term-link_to_term_search'
+    fields:
+      'dynamic_token_field:taxonomy_term-link_to_term_search':
+        plugin_id: 'dynamic_token_field:taxonomy_term-link_to_term_search'
+        weight: 0
+        label: hidden
+        formatter: default
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+id: taxonomy_term.fao_aims_agrovoc.term_search_link
+targetEntityType: taxonomy_term
+bundle: fao_aims_agrovoc
+mode: term_search_link
+content: {  }
+hidden:
+  description: true
+  field_agrovoc_alternative_labels: true
+  field_agrovoc_broader: true
+  field_agrovoc_definition: true
+  field_agrovoc_narrower: true
+  field_agrovoc_note: true
+  field_agrovoc_related: true
+  field_agrovoc_transliterated_def: true
+  field_agrovoc_transliterated_lab: true
+  field_agrovoc_transliterated_tit: true
+  field_agrovoc_uri: true
+  field_agrovoc_uri_link: true
+  field_fao_agrovoc_code: true
+  langcode: true
+  search_api_excerpt: true

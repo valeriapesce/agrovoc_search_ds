@@ -1,0 +1,82 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.suggestion_1
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_alternative_labels
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_broader
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_definition
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_narrower
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_note
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_related
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_def
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_lab
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_transliterated_tit
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_uri
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_agrovoc_uri_link
+    - field.field.taxonomy_term.fao_aims_agrovoc.field_fao_agrovoc_code
+    - taxonomy.vocabulary.fao_aims_agrovoc
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col
+      library: ds/ds_2col
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          left: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      left:
+        - taxonomy_term_title
+      right:
+        - field_agrovoc_alternative_labels
+    fields:
+      taxonomy_term_title:
+        plugin_id: taxonomy_term_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          'link class': ''
+          wrapper: ''
+          class: ''
+id: taxonomy_term.fao_aims_agrovoc.suggestion_1
+targetEntityType: taxonomy_term
+bundle: fao_aims_agrovoc
+mode: suggestion_1
+content:
+  field_agrovoc_alternative_labels:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: right
+hidden:
+  description: true
+  field_agrovoc_broader: true
+  field_agrovoc_definition: true
+  field_agrovoc_narrower: true
+  field_agrovoc_note: true
+  field_agrovoc_related: true
+  field_agrovoc_transliterated_def: true
+  field_agrovoc_transliterated_lab: true
+  field_agrovoc_transliterated_tit: true
+  field_agrovoc_uri: true
+  field_agrovoc_uri_link: true
+  field_fao_agrovoc_code: true
+  langcode: true
+  search_api_excerpt: true
